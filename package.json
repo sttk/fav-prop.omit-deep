@@ -1,0 +1,58 @@
+{
+  "name": "@fav/prop.omit-deep",
+  "version": "0.0.0",
+  "description": "Creates a new plain object and copy child and descendant properties of a source object except specified deeply.",
+  "main": "index.js",
+  "files": [
+    "index.js",
+    "web/"
+  ],
+  "scripts": {
+    "lint": "eslint .",
+    "test": "mocha",
+    "coverage": "nyc --reporter=lcov --reporter=text-summary npm test",
+    "coveralls": "nyc --reporter=text-lcov npm test | coveralls",
+    "web:build": "npm run web:build-src && npm run web:build-test",
+    "web:build-src": "browserify index.js --standalone fav.prop.omit-deep -o web/fav.prop.omit-deep.js && cd web && uglifyjs fav.prop.omit-deep.js --compress --mangle -o fav.prop.omit-deep.min.js --source-map url=fav.prop.omit-deep.min.js.map",
+    "web:build-test": "node tool/mktest.js",
+    "chrome:install": "npm i --no-save mocha-chrome",
+    "chrome:test": "mocha-chrome test/web/browser-test.html",
+    "phantom:install": "npm i --no-save phantomjs-prebuilt mocha-phantomjs",
+    "phantom:test": "mocha-phantomjs -p node_modules/.bin/phantomjs test/web/browser-test.html",
+    "build": "npm run lint && npm run coverage && npm run web:build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sttk/fav-prop.omit-deep.git"
+  },
+  "keywords": [
+    "omit",
+    "property",
+    "tree",
+    "enumerable",
+    "object",
+    "prop",
+    "fav"
+  ],
+  "author": "Takayuki Sato",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sttk/fav-prop.omit-deep/issues"
+  },
+  "homepage": "https://github.com/sttk/fav-prop.omit-deep#readme",
+  "dependencies": {
+    "@fav/prop.assign-deep": "^1.0.0",
+    "@fav/prop.get-deep": "^1.0.0",
+    "@fav/prop.visit": "^1.0.0",
+    "@fav/type.is-array": "^1.0.0"
+  },
+  "devDependencies": {
+    "browserify": "^14.5.0",
+    "chai": "^3.5.0",
+    "coveralls": "^3.0.0",
+    "eslint": "^4.11.0",
+    "mocha": "^3.4.2",
+    "nyc": "^11.3.0",
+    "uglify-js": "^3.1.9"
+  }
+}
