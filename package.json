@@ -1,6 +1,6 @@
 {
   "name": "@fav/prop.omit-deep",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Creates a new plain object and copy child and descendant properties of a source object except specified deeply.",
   "main": "index.js",
   "files": [
