@@ -444,7 +444,7 @@ describe('fav.prop.omit-deep', function() {
     it('Should omit normally when count of propPaths (2nd argument) ' +
     'is a lot\n\t(' +
     num + 'x' + num + ')', function() {
-      this.timeout(5000);
+      this.timeout(0);
 
       var obj = {};
       for (var i = 0; i < num; i++) {
